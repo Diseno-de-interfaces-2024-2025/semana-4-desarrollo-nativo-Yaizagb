@@ -16,7 +16,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.graphics.Color
 import com.example.ejercicio2.ui.theme.Ejercicio2Theme
 
 class MainActivity : ComponentActivity() {
@@ -26,11 +26,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             Ejercicio2Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    //ButonText(
-                     //   modifier = Modifier.padding(innerPadding)
-                    //)
-                    ButtonColor(
+                    ButonText(
                         modifier = Modifier.padding(innerPadding)
+                    )
+                    ButtonColor(
+                        modifier = Modifier.padding(innerPadding),
+                        color = Color.Cyan,
+                        string = "Botón pulsado"
                     )
                 }
             }
