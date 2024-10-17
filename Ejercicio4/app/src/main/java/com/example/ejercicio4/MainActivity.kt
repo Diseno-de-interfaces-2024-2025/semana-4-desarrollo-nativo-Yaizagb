@@ -72,20 +72,21 @@ fun Greeting(modifier: Modifier = Modifier) {
         // Segunda fila con dos Box
         Row(Modifier.fillMaxWidth()) {
             // Primer Box con color Cyan
-            Box(Modifier.weight(1f).height(100.dp).background(Color.Cyan)) {
+            Box(Modifier.weight(1f).height(200.dp).padding(10.dp).background(Color.Cyan)) {
                 // Puedes agregar contenido aquí si lo necesitas
             }
 
             // Scrollable vertical Box
-            Box(Modifier.weight(1f).verticalScroll(rememberScrollState())) {
+            Box(Modifier.weight(1f).height(200.dp).verticalScroll(rememberScrollState())) {
                 Text(
-                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                     modifier = Modifier.padding(16.dp)
                 )
             }
         }
 
         // Sección del formulario
+        Row(Modifier.fillMaxWidth()){
         Column(Modifier.padding(16.dp)) {
             Text("FORMULARIO")
 
@@ -99,33 +100,41 @@ fun Greeting(modifier: Modifier = Modifier) {
                 value = text1,
                 onValueChange = { text1 = it },
                 label = { Text("Usuario 1") },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().padding(20.dp)
             )
             TextField(
                 value = text2,
                 onValueChange = { text2 = it },
                 label = { Text("Usuario 2") },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().padding(20.dp)
             )
             TextField(
                 value = text3,
                 onValueChange = { text3 = it },
                 label = { Text("Usuario 3") },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().padding(20.dp)
             )
             TextField(
                 value = text4,
                 onValueChange = { text4 = it },
                 label = { Text("Usuario 4") },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().padding(20.dp)
             )
 
             // Botón de actualizar
-            Button(onClick = {
-                // Acción del botón
-            }, modifier = Modifier.padding(top = 16.dp)) {
-                Text("Actualizar")
+
+        }
+            Column(Modifier.fillMaxWidth()) {
+                Text("");
+                Text("");
+                Text("");
+                Text("");
             }
+        }
+        Button(onClick = {
+            // Acción del botón
+        }, modifier = Modifier.padding(top = 16.dp)) {
+            Text("Actualizar")
         }
     }
 }
