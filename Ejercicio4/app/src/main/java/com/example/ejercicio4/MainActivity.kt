@@ -16,6 +16,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -30,10 +32,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.ejercicio4.ui.theme.Ejercicio4Theme
 
 class MainActivity : ComponentActivity() {
@@ -54,6 +58,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(modifier: Modifier = Modifier) {
+    var text1 by remember { mutableStateOf("") }
+    var text2 by remember { mutableStateOf("") }
+    var text3 by remember { mutableStateOf("") }
+    var text4 by remember { mutableStateOf("") }
+    var displayedText1 by remember { mutableStateOf("") }
+    var displayedText2 by remember { mutableStateOf("") }
+    var displayedText3 by remember { mutableStateOf("") }
+    var displayedText4 by remember { mutableStateOf("") }
     Column(Modifier.fillMaxSize()) {
         // Primer Box con pantalla negra y texto "Screen"
         Box(Modifier.fillMaxWidth().height(100.dp).background(Color.Black)) {
@@ -73,7 +85,7 @@ fun Greeting(modifier: Modifier = Modifier) {
         Row(Modifier.fillMaxWidth()) {
             // Primer Box con color Cyan
             Box(Modifier.weight(1f).height(200.dp).padding(10.dp).background(Color.Cyan)) {
-                // Puedes agregar contenido aquí si lo necesitas
+
             }
 
             // Scrollable vertical Box
@@ -85,55 +97,79 @@ fun Greeting(modifier: Modifier = Modifier) {
             }
         }
 
+        Text("FORMULARIO",modifier.align(alignment = Alignment.CenterHorizontally),fontSize = 30.sp,);
         // Sección del formulario
-        Row(Modifier.fillMaxWidth()){
-        Column(Modifier.padding(16.dp)) {
-            Text("FORMULARIO")
+        Column(Modifier.fillMaxWidth()) {
+            // Nombre
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                TextField(
+                    value = text1,
+                    onValueChange = { text1 = it },
+                    label = { Text("Nombre") },
+                    modifier = Modifier.width(250.dp).padding(20.dp)
+                )
+                Box(modifier = Modifier.fillMaxWidth().weight(1f)) {
+                    Text(
+                        displayedText1,
+                        modifier = Modifier.align(Alignment.Center) // Centrar el texto en su espacio
+                    )
+                }
+            }
 
-            var text1 by remember { mutableStateOf("") }
-            var text2 by remember { mutableStateOf("") }
-            var text3 by remember { mutableStateOf("") }
-            var text4 by remember { mutableStateOf("") }
+            // Email
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                TextField(
+                    value = text2,
+                    onValueChange = { text2 = it },
+                    label = { Text("Email") },
+                    modifier = Modifier.width(250.dp).padding(20.dp)
+                )
+                Box(modifier = Modifier.fillMaxWidth().weight(1f)) {
+                    Text(
+                        displayedText2,
+                        modifier = Modifier.align(Alignment.Center) // Centrar el texto en su espacio
+                    )
+                }
+            }
 
-            // Campos de texto para el formulario
-            TextField(
-                value = text1,
-                onValueChange = { text1 = it },
-                label = { Text("Usuario 1") },
-                modifier = Modifier.fillMaxWidth().padding(20.dp)
-            )
-            TextField(
-                value = text2,
-                onValueChange = { text2 = it },
-                label = { Text("Usuario 2") },
-                modifier = Modifier.fillMaxWidth().padding(20.dp)
-            )
-            TextField(
-                value = text3,
-                onValueChange = { text3 = it },
-                label = { Text("Usuario 3") },
-                modifier = Modifier.fillMaxWidth().padding(20.dp)
-            )
-            TextField(
-                value = text4,
-                onValueChange = { text4 = it },
-                label = { Text("Usuario 4") },
-                modifier = Modifier.fillMaxWidth().padding(20.dp)
-            )
+            // Dirección
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                TextField(
+                    value = text3,
+                    onValueChange = { text3 = it },
+                    label = { Text("Dirección") },
+                    modifier = Modifier.width(250.dp).padding(20.dp)
+                )
+                Box(modifier = Modifier.fillMaxWidth().weight(1f)) {
+                    Text(
+                        displayedText3,
+                        modifier = Modifier.align(Alignment.Center) // Centrar el texto en su espacio
+                    )
+                }
+            }
 
-            // Botón de actualizar
-
-        }
-            Column(Modifier.fillMaxWidth()) {
-                Text("");
-                Text("");
-                Text("");
-                Text("");
+            // País
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                TextField(
+                    value = text4,
+                    onValueChange = { text4 = it },
+                    label = { Text("País") },
+                    modifier = Modifier.width(250.dp).padding(20.dp)
+                )
+                Box(modifier = Modifier.fillMaxWidth().weight(1f)) {
+                    Text(
+                        displayedText4,
+                        modifier = Modifier.align(Alignment.Center) // Centrar el texto en su espacio
+                    )
+                }
             }
         }
         Button(onClick = {
-            // Acción del botón
-        }, modifier = Modifier.padding(top = 16.dp)) {
+            displayedText1 = text1
+            displayedText2 = text2
+            displayedText3 = text3
+            displayedText4 = text4
+        }, modifier = Modifier.padding(top = 16.dp).align(alignment = Alignment.CenterHorizontally)) {
             Text("Actualizar")
         }
     }
