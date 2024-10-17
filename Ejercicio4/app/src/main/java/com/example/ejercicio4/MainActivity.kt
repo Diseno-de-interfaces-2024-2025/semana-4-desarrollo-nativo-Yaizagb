@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
@@ -33,6 +34,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -85,7 +87,7 @@ fun Greeting(modifier: Modifier = Modifier) {
         // Segunda fila con dos Box
         Row(Modifier.fillMaxWidth()) {
             // Primer Box con color Cyan
-            Box(Modifier.weight(1f).height(250.dp).padding(10.dp).background(Color.Cyan)) {
+            Box(Modifier.weight(1f).height(250.dp).padding(10.dp).clip(RoundedCornerShape(16.dp)).background(Color.Cyan)) {
 
             }
 
