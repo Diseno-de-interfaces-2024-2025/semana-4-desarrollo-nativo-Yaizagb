@@ -67,13 +67,14 @@ fun Greeting(modifier: Modifier = Modifier) {
     var displayedText3 by remember { mutableStateOf("") }
     var displayedText4 by remember { mutableStateOf("") }
     Column(Modifier.fillMaxSize()) {
+        Box(Modifier.fillMaxWidth().height(40.dp)){}
         // Primer Box con pantalla negra y texto "Screen"
-        Box(Modifier.fillMaxWidth().height(100.dp).background(Color.Black)) {
-            Text("Screen", color = Color.White, modifier = Modifier.align(Alignment.Center))
+        Box(Modifier.fillMaxWidth().height(80.dp).background(Color.Black)) {
+            Text("Screen", color = Color.White, modifier = Modifier.align(Alignment.Center),fontSize = 30.sp)
         }
 
         // Primera fila horizontal scrollable vacía
-        Row(Modifier.horizontalScroll(rememberScrollState()).padding(10.dp).background(Color.LightGray)) {
+        Row(Modifier.horizontalScroll(rememberScrollState()).background(Color.LightGray)) {
             repeat(10) { // Repetimos para dibujar 10 círculos
                 Canvas(modifier = Modifier.size(60.dp).padding(end = 8.dp)) {
                     drawCircle(color = Color(0xFFA52A2A)) // Marrón
@@ -84,12 +85,12 @@ fun Greeting(modifier: Modifier = Modifier) {
         // Segunda fila con dos Box
         Row(Modifier.fillMaxWidth()) {
             // Primer Box con color Cyan
-            Box(Modifier.weight(1f).height(200.dp).padding(10.dp).background(Color.Cyan)) {
+            Box(Modifier.weight(1f).height(250.dp).padding(10.dp).background(Color.Cyan)) {
 
             }
 
             // Scrollable vertical Box
-            Box(Modifier.weight(1f).height(200.dp).verticalScroll(rememberScrollState())) {
+            Box(Modifier.weight(1f).height(250.dp).verticalScroll(rememberScrollState())) {
                 Text(
                     "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                     modifier = Modifier.padding(16.dp)
@@ -106,7 +107,7 @@ fun Greeting(modifier: Modifier = Modifier) {
                     value = text1,
                     onValueChange = { text1 = it },
                     label = { Text("Nombre") },
-                    modifier = Modifier.width(250.dp).padding(20.dp)
+                    modifier = Modifier.width(250.dp).padding(10.dp)
                 )
                 Box(modifier = Modifier.fillMaxWidth().weight(1f)) {
                     Text(
@@ -122,7 +123,7 @@ fun Greeting(modifier: Modifier = Modifier) {
                     value = text2,
                     onValueChange = { text2 = it },
                     label = { Text("Email") },
-                    modifier = Modifier.width(250.dp).padding(20.dp)
+                    modifier = Modifier.width(250.dp).padding(10.dp)
                 )
                 Box(modifier = Modifier.fillMaxWidth().weight(1f)) {
                     Text(
@@ -138,7 +139,7 @@ fun Greeting(modifier: Modifier = Modifier) {
                     value = text3,
                     onValueChange = { text3 = it },
                     label = { Text("Dirección") },
-                    modifier = Modifier.width(250.dp).padding(20.dp)
+                    modifier = Modifier.width(250.dp).padding(10.dp)
                 )
                 Box(modifier = Modifier.fillMaxWidth().weight(1f)) {
                     Text(
@@ -154,7 +155,7 @@ fun Greeting(modifier: Modifier = Modifier) {
                     value = text4,
                     onValueChange = { text4 = it },
                     label = { Text("País") },
-                    modifier = Modifier.width(250.dp).padding(20.dp)
+                    modifier = Modifier.width(250.dp).padding(10.dp)
                 )
                 Box(modifier = Modifier.fillMaxWidth().weight(1f)) {
                     Text(
